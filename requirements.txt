@@ -1,0 +1,7 @@
+# Email Sender Dependencies
+# No external packages required - uses only Python standard library
+
+# Optional: For enhanced functionality
+# jinja2>=3.1.0  # For advanced templating
+# python-dotenv>=1.0.0  # For environment variable management
+# colorama>=0.4.6  # For colored terminal output

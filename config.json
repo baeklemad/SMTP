@@ -1,0 +1,20 @@
+{
+    "sender_email": "icpep.se.menesescampus@gmail.com",
+    "app_password": "wgacjjsnbnyobmwz",
+    "recipients": {
+        "Prince Rainier S. Mercado": {
+            "email": "mprincerainier@gmail.com",
+            "certificate_url": "https://drive.google.com/file/d/1JO5KU7DRZ-iTkP9SZWlMvvNlgTyZmKYk/view?usp=drivesdk"
+        },
+        "Madelyn Adelaida B. De Guzman": {
+            "email": "madelynadelaidadeguzman@gmail.com",
+            "certificate_url": "https://drive.google.com/file/d/1-ZdFdCq8sV5gU6L7fVvHJlW7-gU6bM7b/view?usp=drivesdk"
+        }
+    },
+    "company_info": {
+        "name": "ICPEP.se Meneses Campus",
+        "phone": "+63 951 168 5582",
+        "website": "https://www.facebook.com/ICPEP.SEBulSUMC",
+        "address": "Bulacan State University-Menese Campus"
+    }
+}
