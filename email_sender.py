@@ -122,7 +122,7 @@ class EmailSender:
 }}
 </style>
 </head>
-<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #0f0f0f;">
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
 <table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation">
 <tr>
 <td align="center" style="padding: 20px 0;">
