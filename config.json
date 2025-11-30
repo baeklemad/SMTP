@@ -1,24 +1,245 @@
 {
     "sender_email": "icpep.se.menesescampus@gmail.com",
     "app_password": "wgacjjsnbnyobmwz",
+    "logo_url": "https://drive.google.com/uc?export=download&id=15jHWN68k3Ju2Yr22-AIw_GoLNIAGIJq_",
     "recipients": {
-        "Prince Rainier S. Mercado": {
-            "email": "mprincerainier@gmail.com",
-            "certificate_url": "https://drive.google.com/file/d/1JO5KU7DRZ-iTkP9SZWlMvvNlgTyZmKYk/view?usp=drivesdk"
+        "Josh Nathaniel R. Arcilla": {
+            "email": "jotjotnathanielarcilla@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1fkCuXQ5sJKsVUdujcSWbqJHzE8-istXf"
         },
-        "Madelyn Adelaida B. De Guzman": {
-            "email": "madelynadelaida@gmail.com",
-            "certificate_url": "https://drive.google.com/file/d/1-ZdFdCq8sV5gU6L7fVvHJlW7-gU6bM7b/view?usp=drivesdk"
+        "Gerrico R. Matito": {
+            "email": "xgerrico@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1iYNgfYgbeMOeoBZiGnpgyaLvjalb8mVX"
         },
-        "Alimae Barcelona" : {
+        "Maxine G. Nerida": {
+            "email": "maxinenerida@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1WEVPyrE-eRsK8W2-Csl04zveDBf5UFQk"
+        },
+        "Matthew Antonio B. Bulaong": {
+            "email": "bulaongmatthew55432@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1X8uv2DHIKf0jbOmlKtQUVhlMdneb6bCp"
+        },
+        "John Michael Espartero": {
+            "email": "jm.espartero.2001@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1wDeSBdY3gDoAVo72CiEKkFkeG44VAcYU"
+        },
+        "Ana Marie Joy S. Del Prado": {
+            "email": "emjhaydelprado29@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=12dCuDKruXC5zTuNisiElrRF3eVSuWUwc"
+        },
+        "J-Ann C. Agbayani": {
+            "email": "jannagbayani1244@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1AR1fqv5D8rTj_cN5Qskd6YhYi6tGcBUm"
+        },
+        "Ambross Priam L. Dela Cruz": {
+            "email": "ambrosspriamdelacruz@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1pDj36SRcnG5l2Q-KAxKqNjK2eik6-cmg"
+        },
+        "Ziela Lei D. Hernandez": {
+            "email": "zielalei7@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1oK868AmI77sGWpyh-hneEJBnEFA4TsWW"
+        },
+        "Emmanuel A. Dumalay": {
+            "email": "ememdumalay@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=11Zf-LaLSFwB6V-KjOdwC8_mP3PLne2f2"
+        },
+        "Jan Marielle G. Gatmaitan": {
+            "email": "gatmaitanjanmarielle@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1n2tLMqkIfizNszOEryg5Z5yIl-4p4-L-"
+        },
+        "Ferdinand Dc Ramos": {
+            "email": "ramosfed01@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=14-Ezt6GWrJ2u_u3DAByzVNqzGTgS1vkN"
+        },
+        "Lyka A. Sacdalan": {
+            "email": "lykasacdalan0719@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=13KkX7n8bPCPLv5ApsSOOGNZr58KIa5Gw"
+        },
+        "Angelie Mae A. Aguilar": {
+            "email": "angelieaguilar487@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1DVNGlOHzXgK4HtzW8sdDk0QR4i7VPvEL"
+        },
+        "Liberty Joy V. Obasan": {
+            "email": "lbrtyjyobsn@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=12pd9lIDUkzFEYHkeYUYjV9ES_oZ9KVhQ"
+        },
+        "Jann Jason S. Israel": {
+            "email": "israeljas13@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=180P0FVqQH0rG7djZSxXUwqgGJjDMaEYi"
+        },
+        "Klive Ehron L. San Diego": {
+            "email": "klivesandiego2@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1aWJ_CC6UvizP5gtGjgLeauFNm48zCXrv"
+        },
+        "Charlene Faye R. Samaniego": {
+            "email": "fayesamaniego20@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1PQtcDSrevfhh5Tnfz34J-HVs7VjYEFoK"
+        },
+        "Melody G. Santos": {
+            "email": "santosmelodyg@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1Sp3x6FmGtXsEk2IKWW_zA8EXZOW_e9uZ"
+        },
+        "Joyce Ann B. Tallara": {
+            "email": "tallarajoyce@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1voyTNrm8MCdMVGd400R4E5WY7XtaFt-O"
+        },
+        "Cloiez Veniz Lomangaya Belmonte": {
+            "email": "cloiezbelmonte0116@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1U-XjJFYZOus349hmsD8zuf1f8wU2vpZe"
+        },
+        "Jerome Soliven Lagarde": {
+            "email": "jeromelagarde1123@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=16yZo6Aow4Hib9BGTbyJktUzm8QsEqwB9"
+        },
+        "Ferose Hana M. Asuncion": {
+            "email": "ferosehana@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1T0DsK_irvzaVHnscMH9OzrPSJzK__aMh"
+        },
+        "Clint Kelvin H. Ignacio": {
+            "email": "iclintkelvin@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1Zb-CPg0SB9BoRO9FZdf8LfBJuspjOdZj"
+        },
+        "Andrea M. Cabiling": {
+            "email": "andreacabiling488@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1_ICbZF4_VBj7sz4s5NI_lYKsfey2bqWf"
+        },
+        "Rinwell Dg. Salazar": {
+            "email": "rinwellsalazar7@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=10CTsl8ZirxSkb1m0wcf0IkL88N8Vu-XD"
+        },
+        "Earl Christian B. Mabolo": {
+            "email": "christian11earl07@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1WCHqn_vkpSSAK5YLAlqTrscDcthLDCpK"
+        },
+        "Mark Rainier Ds. Lopez": {
+            "email": "rainierlopez63@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=17p6hv_qkX3NRIcDb2s0K_wJAUEQ17mUb"
+        },
+        "Kristine L. Panganiban": {
+            "email": "kristine24panganiban@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1G_Z7t56DiGdOdImibdBw8ybJSrD63ZiE"
+        },
+        "Clarisse E. Acosta": {
+            "email": "acostaclarissee@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1TYA4gMXawTErb4mluOybkQ06YbjUtgu0"
+        },
+        "Maria Salve P. Cano": {
+            "email": "mariasalvecano1@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1H0GFZKxUTtAsDuvB__LZx0W3Lh2HHAyQ"
+        },
+        "Ivan Lipardo": {
+            "email": "ivanlipardo47@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1w7jIw1KRJDeY6Hl7-Ne0VAbqvhnTmJ4U"
+        },
+        "James Joseph E. Lotino": {
+            "email": "Lotinojamesjoseph9@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1oDHVdD76OpXvUzKb03M2Ms4tzhGl4Slu"
+        },
+        "Francesca Mae C Dael": {
+            "email": "francescadael03@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1xxU5mmANgp4jhMmivDYGe-MT-Uxc9jqZ"
+        },
+        "Reinier N. Ibatuan": {
+            "email": "reinier924@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1u_CrMp-bqjJn35bEzdiwIzh01aQuFal0"
+        },
+        "Marc Julian Asi O. Marcelo": {
+            "email": "asiobligar@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1C5ByKjkgcj7E-IYjkC5uZd2lGDYzjyxP"
+        },
+        "Ashly E. Santos": {
+            "email": "ashlysantos11@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1mldOzR75RWeqkjVtIC6MBvZMZLw05P1Q"
+        },
+        "Justin Dc. San Antonio": {
+            "email": "justinstudy3214@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1AaBXvCmfrb50gWyZvSvDfqhUUtmcH8wb"
+        },
+        "Jewel Christine Mae S. Viaña": {
+            "email": "jewelviana@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=19IeX40O_niznmV99QZ5Ciu4qXhb5pIv9"
+        },
+        "Julia Mae Ds. Narne": {
+            "email": "eamae19750@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1gf20eiBHl2rD0zkf5CILluJ-C8DEMdWn"
+        },
+        "Amyleanne Q. Cuerdo": {
+            "email": "amyleanne.cuerdo09@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1FwYtvD0mY5-Z1kPe0wWzlgsDlbWNYW-X"
+        },
+        "Cristina M. Ramos": {
+            "email": "tintinamabitadramos@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1e8LsCDOmOTEQJ36OR0Fzgp7RrCsR0aFE"
+        },
+        "Arian James M. Desiderio": {
+            "email": "arianjamesdesiderio33@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1WGh5iAxVPU4mbfHOlhZHjT2KM58ZAb_s"
+        },
+        "Jhandell C. Alcantara": {
+            "email": "alcantarajhandell1@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1F0_PTwbuKsTyRCnGe2m11gH7nbdS7o_J"
+        },
+        "Diana Lyn N. Sulit": {
+            "email": "sulitdianalyn25@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1Lk9gh_lE1UDc_BahgLnUJtdi25I6KcX0"
+        },
+        "Jeremiah V. Tuazon": {
+            "email": "jeremiahtuazon09@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1aqh37Pby2rbtGGGuXWll5Iv2d0kBe7EN"
+        },
+        "Ma. Luisa Andria R. Caguiat": {
+            "email": "luisacaguiat@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1EiBhwIvt4vftXd8yiXgvrz1f4e3b016q"
+        },
+        "Michaella Denise S. San Pedro": {
+            "email": "michaelladenise050206@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=10kgy1bdAcu5BY88HwtUrjEFhzjf9lpRZ"
+        },
+        "Hazel Mae Loraine Berlin M. Barcia": {
+            "email": "hazel05barcia@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1gowlte2UASVMERYTy647tvwphZ94D4Ob"
+        },
+        "Marquin Ace L. Godoy": {
+            "email": "marquinacegodoy@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1ws3njfrQUZ8XxIicCk4FTrdAzaqRAwks"
+        },
+        "Jen Ashley Bautista": {
+            "email": "jenashleybautista9@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=14SlqMuubYhfvXZCmBHYC06xDlaML-igm"
+        },
+        "Trisha Mae G. Domingo": {
+            "email": "trishamaedomingo28spnhs@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1TE6HN4dcHGWqTa-XM27Z1iUI2Dd9U0pp"
+        },
+        "Michael Angelo O. Celestino": {
+            "email": "michaelangelo.o.celestino@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1klRJcjW3-NFZSphSzmuCe9Sr2jNbY2Tu"
+        },
+        "John Quelvin B. Rosales": {
+            "email": "johnquelvin18@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1akQM9-Sosoh9jJsSflwl_NUegfu1mNAi"
+        },
+        "Eul Jeremy V. Reyes": {
+            "email": "euljeremyreyes1408@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1kde7CpXynDlHJbmvSMUBq4EVtBwXseW-"
+        },
+        "Alimae Barcelona": {
             "email": "alimaebarcelona@gmail.com",
-            "certificate_url": "https://drive.google.com/file/d/1-ZdFdCq8sV5gU6L7fVvHJlW7-gU6bM7b/view?usp=drivesdk"
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1hTzl5_uEVrkh4ugLiKk38ko1WxOxjkiS"
+        },
+        "Niño Dan Gil A. Sanchez": {
+            "email": "dangilsanchez0327@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=1RhAUdMd5NCAqgmsOLMvHH0kk6rUE_PhN"
+        },
+        "Jeremiah Dr. Sumeracruz": {
+            "email": "jeremiahdrsumeracruz@gmail.com",
+            "certificate_url": "https://drive.google.com/uc?export=download&id=15jHWN68k3Ju2Yr22-AIw_GoLNIAGIJq_"
         }
     },
     "company_info": {
         "name": "ICPEP.se Meneses Campus",
         "phone": "+63 951 168 5582",
         "website": "https://www.facebook.com/ICPEP.SEBulSUMC",
-        "address": "Bulacan State University-Menese Campus"
+        "address": "Bulacan State University-Meneses Campus"
     }
 }

@@ -22,6 +22,8 @@ class EmailSender:
         self.config = self._load_config(config_file)
         self.smtp_server = "smtp.gmail.com"
         self.smtp_port = 587
+        self._logo_data = None
+        self._logo_msg_id = None
         
     def _load_config(self, config_file: str) -> Dict[str, Any]:
         """Load configuration from JSON file."""
@@ -35,6 +37,25 @@ class EmailSender:
             print(f"Invalid JSON in configuration file '{config_file}'.")
             return {}
     
+    def _get_logo_data(self):
+        """Fetch and cache the logo data."""
+        if self._logo_data:
+            return self._logo_data, self._logo_msg_id
+
+        logo_url = self.config.get("logo_url", "")
+        if not logo_url:
+            return None, None
+
+        try:
+            logo_msg_id = make_msgid(domain="icpepse")
+            with urllib.request.urlopen(logo_url) as response:
+                self._logo_data = response.read()
+            self._logo_msg_id = logo_msg_id
+            return self._logo_data, self._logo_msg_id
+        except Exception as e:
+            print(f"⚠️ Failed to download logo: {e}")
+            return None, None
+
     def _create_html_template(self, recipient_name: str, subject: str,
                               mode: str = "certificate",
                               certificate_url: str = "#",
@@ -72,8 +93,8 @@ class EmailSender:
 <strong>Time:</strong> {meet_info.get('time')}<br/>
 <strong>Google Meet Link:</strong> <a href="{meet_info.get('link')}" target="_blank" style="color: #4aa3ff; text-decoration: underline;">{meet_info.get('link')}</a>
 </p>
-<p style="margin: 0 0 18px 0; font-size: 15px; line-height: 1.7; color: #d4d4d4;">We encourage you to join on time to ensure a smooth and informative session.</p>
-<p style="margin: 0 0 18px 0; font-size: 15px; line-height: 1.7; color: #d4d4d4;">We appreciate your participation and look forward to your continued engagement with ICPEP.se Meneses Campus.</p>
+<p style="margin: 0 0 18px 0; font-size: 15px; line-height: 1.7; color: #d4d4d4;">Congratulations! We are pleased to present you with your participation certificate.</p>
+<p style="margin: 0 0 18px 0; font-size: 15px; line-height: 1.7; color: #d4d4d4;">You can download your certificate using the button below. Please save it for your records and feel free to share it on your professional profiles.</p>
 <p style="margin: 0 0 28px 0; font-size: 15px; line-height: 1.7; color: #d4d4d4;">Best regards,<br/><span style="color: #b8b8b8;">ICPEP.se Meneses Campus Team</span></p>
 """
         else:
@@ -155,8 +176,13 @@ class EmailSender:
     def send_email(self, recipient_email: str, subject: str, recipient_name: str,
                    mode: str = "certificate",
                    certificate_url: Optional[str] = None,
-                   meet_info: Optional[Dict[str, str]] = None) -> bool:
-        """Send an HTML email for certificate or meet invite."""
+                   meet_info: Optional[Dict[str, str]] = None,
+                   server: Optional[smtplib.SMTP] = None) -> bool:
+        """
+        Send an HTML email for certificate or meet invite.
+        If 'server' is provided, it uses the existing connection.
+        Otherwise, it creates a new connection (and closes it after sending).
+        """
         if not self.config:
             print("❌ No configuration loaded.")
             return False
@@ -168,19 +194,14 @@ class EmailSender:
             message["Subject"] = subject
 
             logo_cid_value = None
-            logo_url = self.config.get("logo_url", "")
-            if logo_url:
-                try:
-                    logo_msg_id = make_msgid(domain="icpepse")
-                    with urllib.request.urlopen(logo_url) as response:
-                        logo_data = response.read()
-                    logo_part = MIMEImage(logo_data)
-                    logo_part.add_header("Content-ID", logo_msg_id)
-                    logo_part.add_header("Content-Disposition", "inline", filename="logo.png")
-                    message.attach(logo_part)
-                    logo_cid_value = logo_msg_id.strip("<>")
-                except Exception:
-                    pass
+            logo_data, logo_msg_id = self._get_logo_data()
+            
+            if logo_data and logo_msg_id:
+                logo_part = MIMEImage(logo_data)
+                logo_part.add_header("Content-ID", logo_msg_id)
+                logo_part.add_header("Content-Disposition", "inline", filename="logo.png")
+                message.attach(logo_part)
+                logo_cid_value = logo_msg_id.strip("<>")
 
             html_content = self._create_html_template(
                 recipient_name, subject,
@@ -195,11 +216,16 @@ class EmailSender:
             message.attach(MIMEText(text_content, "plain"))
             message.attach(MIMEText(html_content, "html"))
 
-            context = ssl.create_default_context()
-            with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
-                server.starttls(context=context)
-                server.login(self.config['sender_email'], self.config['app_password'])
+            if server:
+                # Use existing connection
                 server.sendmail(self.config['sender_email'], recipient_email, message.as_string())
+            else:
+                # Create new connection
+                context = ssl.create_default_context()
+                with smtplib.SMTP(self.smtp_server, self.smtp_port) as new_server:
+                    new_server.starttls(context=context)
+                    new_server.login(self.config['sender_email'], self.config['app_password'])
+                    new_server.sendmail(self.config['sender_email'], recipient_email, message.as_string())
 
             print(f"✅ Sent to {recipient_email}")
             return True
@@ -228,21 +254,59 @@ class EmailSender:
             "link": link
         }
 
+        # Trial Phase: Test Email
+        print("\n🔎 Test Phase:")
+        if input("Send a test email first? (y/n): ").strip().lower() == 'y':
+            test_email = input("Enter test recipient email: ").strip()
+            if test_email:
+                # Get sample data from first recipient
+                first_recipient_key = next(iter(self.config['recipients']))
+                
+                print(f"📨 Sending test email to {test_email} (using data from {first_recipient_key})...")
+                test_success = self.send_email(
+                    recipient_email=test_email,
+                    recipient_name=first_recipient_key,
+                    subject=subject,
+                    mode="meet",
+                    meet_info=meet_info
+                )
+                
+                if test_success:
+                    print("✅ Test email sent successfully.")
+                    if input("Proceed with bulk sending? (y/n): ").strip().lower() != 'y':
+                        print("🚫 Bulk sending aborted.")
+                        return {}
+                else:
+                    print("❌ Test email failed. Aborting.")
+                    return {}
+
         results = {}
-        for name, details in self.config['recipients'].items():
-            email = details.get('email') if isinstance(details, dict) else details
-            if not email:
-                print(f"⚠️ Missing email for {name}")
-                continue
-            print(f"📨 Sending to: {name} ({email})")
-            success = self.send_email(
-                recipient_email=email,
-                recipient_name=name,
-                subject=subject,
-                mode="meet",
-                meet_info=meet_info
-            )
-            results[email] = success
+        
+        # Establish connection once
+        try:
+            context = ssl.create_default_context()
+            with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
+                server.starttls(context=context)
+                server.login(self.config['sender_email'], self.config['app_password'])
+                
+                for name, details in self.config['recipients'].items():
+                    email = details.get('email') if isinstance(details, dict) else details
+                    if not email:
+                        print(f"⚠️ Missing email for {name}")
+                        continue
+                    print(f"📨 Sending to: {name} ({email})")
+                    success = self.send_email(
+                        recipient_email=email,
+                        recipient_name=name,
+                        subject=subject,
+                        mode="meet",
+                        meet_info=meet_info,
+                        server=server # Pass the active connection
+                    )
+                    results[email] = success
+        except Exception as e:
+            print(f"❌ Connection error: {e}")
+            
         return results
 
 def main():
@@ -262,14 +326,122 @@ def main():
 
     choice = input("\nSelect option (1–4): ").strip()
 
-    if choice == "4":
+    if choice == "1":
+        # Manual single email
+        email = input("Recipient email: ").strip()
+        name = input("Recipient name: ").strip()
+        subject = input("Email subject: ").strip()
+        cert_url = input("Certificate URL: ").strip()
+        sender.send_email(email, subject, name, mode="certificate", certificate_url=cert_url)
+        
+    elif choice == "2":
+        # Bulk certificate emails from config
+        if 'recipients' not in sender.config:
+            print("❌ No recipients found in config.json.")
+            return
+        
+        subject = input("Enter email subject (default: 'Your Certificate of Participation'): ").strip()
+        if not subject:
+            subject = "Your Certificate of Participation"
+
+        # Trial Phase: Test Email
+        print("\n🔎 Test Phase:")
+        if input("Send a test email first? (y/n): ").strip().lower() == 'y':
+            test_email = input("Enter test recipient email: ").strip()
+            if test_email:
+                # Get sample data from first recipient
+                first_recipient_key = next(iter(sender.config['recipients']))
+                first_recipient_data = sender.config['recipients'][first_recipient_key]
+                
+                sample_name = first_recipient_key
+                sample_cert_url = '#'
+                if isinstance(first_recipient_data, dict):
+                    sample_cert_url = first_recipient_data.get('certificate_url', '#')
+                
+                print(f"📨 Sending test email to {test_email} (using data from {sample_name})...")
+                test_success = sender.send_email(
+                    recipient_email=test_email,
+                    recipient_name=sample_name,
+                    subject=subject,
+                    mode="certificate",
+                    certificate_url=sample_cert_url
+                )
+                
+                if test_success:
+                    print("✅ Test email sent successfully.")
+                    if input("Proceed with bulk sending? (y/n): ").strip().lower() != 'y':
+                        print("🚫 Bulk sending aborted.")
+                        return
+                else:
+                    print("❌ Test email failed. Aborting.")
+                    return
+            
+        results = {}
+        
+        # Establish connection once
+        try:
+            context = ssl.create_default_context()
+            with smtplib.SMTP(sender.smtp_server, sender.smtp_port) as server:
+                server.starttls(context=context)
+                server.login(sender.config['sender_email'], sender.config['app_password'])
+
+                for name, details in sender.config['recipients'].items():
+                    if isinstance(details, dict):
+                        email = details.get('email')
+                        cert_url = details.get('certificate_url', '#')
+                    else:
+                        email = details
+                        cert_url = '#'
+                        
+                    if not email:
+                        print(f"⚠️ Missing email for {name}")
+                        continue
+                        
+                    print(f"📨 Sending to: {name} ({email})")
+                    success = sender.send_email(
+                        recipient_email=email,
+                        recipient_name=name,
+                        subject=subject,
+                        mode="certificate",
+                        certificate_url=cert_url,
+                        server=server # Pass the active connection
+                    )
+                    results[email] = success
+        except Exception as e:
+            print(f"❌ Connection error: {e}")
+            
+        success_count = sum(1 for r in results.values() if r)
+        print(f"\n📊 Done! {success_count}/{len(results)} certificates sent successfully.")
+        
+    elif choice == "3":
+        # Custom certificate email
+        email = input("Recipient email: ").strip()
+        name = input("Recipient name: ").strip()
+        subject = input("Email subject: ").strip() or "Your Certificate of Participation"
+        cert_url = input("Certificate URL: ").strip()
+        
+        success = sender.send_email(
+            recipient_email=email,
+            recipient_name=name,
+            subject=subject,
+            mode="certificate",
+            certificate_url=cert_url
+        )
+        if success:
+            print("\n✅ Certificate email sent successfully!")
+        else:
+            print("\n❌ Failed to send certificate email.")
+            
+    elif choice == "4":
+        # Google Meet invitations
         print("\n📨 Sending Google Meet invites...\n")
         results = sender.send_bulk_meet_invites()
         success = sum(1 for r in results.values() if r)
         total = len(results)
         print(f"\n📊 Done! {success}/{total} invites sent successfully.")
+        
     else:
-        print("Other options remain unchanged in your existing version.")
+        print("❌ Invalid option selected.")
 
 if __name__ == "__main__":
     main()
